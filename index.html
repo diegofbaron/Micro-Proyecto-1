@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Videojuegos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Menú Principal -->
+    <section id="menu">
+        <h1>QUIZ DE VIDEOJUEGOS</h1>
+        <input type="text" id="nombre-input" placeholder="Tu nombre">
+        <button id="iniciar-btn" disabled>INICIAR QUIZ</button>
+        <h2>TOP 5 PUNTAJES</h2>
+        <table id="ranking">
+            <!-- JS generará las filas -->
+        </table>
+    </section>
+
+    <!-- Sección Quiz -->
+    <section id="quiz" class="hidden">
+        <div id="temporizador">05:00</div>
+        <div id="pregunta-container"></div>
+    </section>
+
+    <!-- Sección Resultados -->
+    <section id="resultados" class="hidden">
+        <h2>RESULTADOS</h2>
+        <p>Puntaje: <span id="puntaje">0</span>/10</p>
+        <div id="retroalimentacion"></div>
+        <button id="nuevo-btn">NUEVO QUIZ</button>
+        <button id="menu-btn">VOLVER AL MENÚ</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
