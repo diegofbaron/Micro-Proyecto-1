@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Videojuegos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="start-screen" class="screen">
+            <h1>QUIZ DE VIDEOJUEGOS</h1>
+            <form id="user-form">
+                <input type="text" id="username" placeholder="Ingresa tu nombre" required>
+                <button type="submit" id="start-btn" disabled>INICIAR QUIZ</button>
+            </form>
+            
+            <div class="ranking">
+                <h2>TOP 5 PUNTAJES</h2>
+                <table id="score-table">
+                    <thead>
+                        <tr>
+                            <th>Posición</th>
+                            <th>Nombre</th>
+                            <th>Puntaje</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="score-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div id="quiz-screen" class="screen hidden">
+            <div class="quiz-header">
+                <div id="timer">05:00</div>
+                <div id="question-count">Pregunta 1/10</div>
+            </div>
+            
+            <div id="question-container">
+                <h2 id="question-text"></h2>
+                <div id="options-container" class="options">
+                    
+                </div>
+            </div>
+            
+            <button id="next-btn" class="hidden">Siguiente</button>
+        </div>
+
+        
+        <div id="result-screen" class="screen hidden">
+            <h1>Resultados</h1>
+            <div class="result-summary">
+                <h2 id="result-username"></h2>
+                <p>Puntaje: <span id="score"></span>/10</p>
+                <p>Porcentaje: <span id="percentage"></span>%</p>
+            </div>
+            
+            <div id="answers-review">
+                
+            </div>
+            
+            <div class="action-buttons">
+                <button id="new-quiz-btn">Nuevo Quiz</button>
+                <button id="menu-btn">Volver al Menú</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

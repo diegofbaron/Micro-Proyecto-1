@@ -1,0 +1,395 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+:root {
+    --primary-color: #FF6D00; 
+    --secondary-color: #FF9100; 
+    --accent-color: #FF3D00; 
+    --correct-color: #2E7D32; 
+    --incorrect-color: #C62828; 
+    --text-color: #FFF3E0; 
+    --background-color: #E65100; 
+    --card-color: #FF8F00; 
+    --button-hover: #FFAB40; 
+    --ranking-color: #BF360C; 
+}
+
+body {
+    font-family: 'Press Start 2P', cursive, 'Courier New', monospace;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 94, 0, 0.2) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 145, 0, 0.2) 0%, transparent 20%);
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.screen {
+    background-color: var(--card-color);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border: 4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+}
+
+.hidden {
+    display: none;
+}
+
+#start-screen h1 {
+    color: var(--text-color);
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 0 var(--primary-color);
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.theme-elements {
+    margin: 20px 0;
+}
+
+.theme-icon {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(3px 3px 0 var(--primary-color));
+}
+
+#user-form {
+    margin: 30px 0;
+}
+
+#username {
+    padding: 12px 15px;
+    width: 70%;
+    max-width: 300px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Press Start 2P', cursive;
+    transition: all 0.3s;
+    box-shadow: 0 4px 0 var(--ranking-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--ranking-color);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--ranking-color);
+}
+
+button:disabled {
+    background-color: #8D6E63;
+    cursor: not-allowed;
+    box-shadow: 0 4px 0 #5D4037;
+    transform: none;
+}
+
+/* Ranking */
+.ranking {
+    margin-top: 40px;
+    background-color: var(--ranking-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.ranking h2 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid var(--secondary-color);
+    text-align: center;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Pantalla del quiz */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    background-color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 0 var(--ranking-color);
+}
+
+#timer {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 0 var(--ranking-color);
+}
+
+#question-count {
+    color: white;
+    font-size: 1rem;
+}
+
+#question-text {
+    margin-bottom: 30px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+    font-size: 1.1rem;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.option-btn {
+    padding: 15px;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 0 var(--primary-color);
+}
+
+.option-btn:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--primary-color);
+}
+
+.option-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--primary-color);
+}
+
+.option-btn.correct {
+    background-color: var(--correct-color);
+    color: white;
+    box-shadow: 0 4px 0 #1B5E20;
+}
+
+.option-btn.incorrect {
+    background-color: var(--incorrect-color);
+    color: white;
+    box-shadow: 0 4px 0 #B71C1C;
+}
+
+.option-btn.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+#next-btn {
+    margin-top: 20px;
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 0 #BF360C;
+}
+
+/* Pantalla de resultados */
+#result-screen h1 {
+    color: white;
+    text-shadow: 2px 2px 0 var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.result-summary {
+    margin-bottom: 30px;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 0 var(--ranking-color);
+}
+
+#score, #percentage {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 2px 2px 0 var(--ranking-color);
+}
+
+.answer-item {
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.answer-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+}
+
+.answer-item.correct {
+    border-left: 5px solid var(--correct-color);
+}
+
+.answer-item.correct::before {
+    background-color: var(--correct-color);
+}
+
+.answer-item.incorrect {
+    border-left: 5px solid var(--incorrect-color);
+}
+
+.answer-item.incorrect::before {
+    background-color: var(--incorrect-color);
+}
+
+.correct-text {
+    color: var(--correct-color);
+    font-weight: bold;
+}
+
+.incorrect-text {
+    color: var(--incorrect-color);
+    font-weight: bold;
+}
+
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .options {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    #start-screen h1 {
+        font-size: 1.5rem;
+    }
+    
+    #username {
+        width: 90%;
+    }
+}
+
+@keyframes pixelGlow {
+    0% { box-shadow: 0 0 5px var(--primary-color); }
+    50% { box-shadow: 0 0 20px var(--secondary-color); }
+    100% { box-shadow: 0 0 5px var(--primary-color); }
+}
+
+.screen {
+    animation: pixelGlow 3s infinite alternate;
+}
+
+button, .option-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+button::after, .option-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    pointer-events: none;
+}
